@@ -1,0 +1,16 @@
+# main_app/urls.py
+from django.urls import path
+from . import views
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    # Other URLs...
+    path('toggle-dark-mode/', views.toggle_dark_mode, name='toggle_dark_mode'),
+    path('admin/approve-user/<int:user_id>/', views.approve_user, name='approve_user'),
+    path('admin/approve-user/<int:user_id>/', views.approve_user, name='approve_user'),
+    path('report/post/<int:post_id>/', views.report, name='report_post'),
+    path('report/user/<int:user_id>/', views.report, name='report_user'),
+    path('admin/', admin.site.urls),
+    path('', include('main_app.urls')),
+]

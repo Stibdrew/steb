@@ -1,0 +1,26 @@
+<!-- report.html -->
+<h2>Report</h2>
+
+<!-- Check for form errors and display them -->
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<form method="POST" class="mt-4">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="message">Why are you reporting this?</label>
+        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Describe the issue" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Submit Report</button>
+</form>
