@@ -1,0 +1,7 @@
+<!-- report.html -->
+<h2>Report</h2>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="message" placeholder="Why are you reporting this?" required></textarea>
+    <button type="submit" class="btn btn-danger">Submit Report</button>
+</form>
